@@ -1,0 +1,9 @@
+{
+    "name": "run-python-script-with-sudo",
+    "type": "python",
+    "request": "launch",
+    "cwd": "${workspaceFolder}",
+    "program": "/home/erfiboy/Pictures/dump_node.py",
+    "console": "externalTerminal",
+    "sudo": true
+}
