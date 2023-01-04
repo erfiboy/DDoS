@@ -2,13 +2,23 @@ from mininet.net import Mininet
 from mininet.node import RemoteController , OVSKernelSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel
+
+from mininet.util import customClass
 from mininet.link import TCLink
+
+# Compile and run sFlow helper script
+# - configures sFlow on OVS
+# - posts topology to sFlow-RT
+execfile('./sflow-rt/extras/sflow.py')
+
+# Rate limit links to 10Mbps
+link = customClass({'tc':TCLink}, 'tc,bw=10')
 
 def topology():
     net = Mininet(
         controller=RemoteController,
         switch=OVSKernelSwitch,
-        link=TCLink
+        link=link
         )
 
     # Adding hosts
@@ -94,7 +104,7 @@ def topology():
         name = "s7",
         protocols= "OpenFlow13"
     )
-
+    print "here"
     net.addLink(h1,s1)
     net.addLink(h2,s1)
     net.addLink(h3,s2)
