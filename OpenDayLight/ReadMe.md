@@ -2,6 +2,9 @@
 
 We will be using [Opendaylight Nitrogen](https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.7.3/karaf-0.7.3.tar.gz) in this project.
 
+![alt text](https://en.wikipedia.org/wiki/OpenDaylight_Project#/media/File:OpenDaylight_logo.png)
+
+
 To install OpenDayLight Controller run the following command:
 ```bash
 wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.7.3/karaf-0.7.3.tar.gz

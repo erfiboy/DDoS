@@ -14,3 +14,10 @@ sFlow-RT® incorporates InMon's asynchronous analytics technology providing real
 We use this Module because standard sFlow instrumentation is built into network equipment from over 40 vendors. We use this module to visualize attakes.
 
 ## How to install 
+TO run sFlow-rt we must Download the tar file, extract it and run it.
+```
+wget https://inmon.com/products/sFlow-RT/sflow-rt.tar.gz
+tar -xvzf sflow-rt.tar.gz
+./sflow-rt/start.sh
+```
+After that the sFlow-RT is available in port 8008 and we can connect to [sFlow-RT GUI](http://localhost:8008) using a web browser.
