@@ -53,5 +53,6 @@ def get_ovs_name_of_nodes(nodes: list) -> dict:
         
     return result
 
-
-print(get_ovs_name_of_nodes(get_nodes()))
+if __name__ == "__main__":
+    print("Here are the available nodes: ", end=" ")
+    print(get_ovs_name_of_nodes(get_nodes()))

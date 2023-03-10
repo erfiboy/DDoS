@@ -1,6 +1,4 @@
 # sFlow
-
-
 ## What is sFlow ?
 sFlow® is an industry standard technology for monitoring high speed switched networks. It gives complete visibility into the use of networks enabling performance optimization, accounting/billing for usage, and defense against security threats.
 

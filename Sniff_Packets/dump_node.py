@@ -3,7 +3,7 @@ import csv
 import time
 import pyshark
 from threading import Thread
-from Utills.get_nodes import get_nodes, get_ovs_name_of_nodes
+from utils.get_nodes import get_nodes, get_ovs_name_of_nodes
 
 def sniff_packets_from_switch(interface_name: str, informations: list) -> tuple:
     capture = pyshark.LiveCapture(interface = interface_name)

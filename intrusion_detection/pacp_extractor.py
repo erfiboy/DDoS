@@ -1,3 +1,4 @@
+import os
 import csv
 from scapy.all import *
 from subprocess import Popen, PIPE
@@ -42,7 +43,6 @@ def save_csv(TCP_Packets, out_path):
 
 
 def get_pcap_size(file_path):
-
     file_stats = os.stat(file_path)
     return int(file_stats.st_size/(1024*1024))
 
@@ -76,14 +76,11 @@ def split_pcap_files(file_path, part_size_MB = 5):
         print(f"sth goes wrong in tcpdump: {e}")
         return
 
-
-if __name__ == '__main__':
-    # path = '/home/erfiboy/Pictures/Capture/amp.TCP.reflection.SYNACK.pcap'
-    # print(split_pcap_files('maccdc2010_00000_20100310205651.pcap.gz'))
+def extract_data_from_pcap_dir(pcap_dir = './capture_dir'):
     packets = []
     
-    for index, file in enumerate(os.listdir('./capture_dir')):
-        path = os.path.join(os.getcwd(), 'capture_dir', file)
+    for index, file in enumerate(os.listdir(pcap_dir)):
+        path = os.path.join(pcap_dir, file)
         file_pkt = extract_features(path)
         if file_pkt == []:
             continue
@@ -91,3 +88,12 @@ if __name__ == '__main__':
         if index == 2:
             break
         save_csv(packets, 'out.csv')
+
+def extract_data_from_pcap_file(pcap_name, pcap_dir = './capture_dir'):    
+    path = os.path.join(pcap_dir, pcap_name)
+    packets = extract_features(path)
+    save_csv(packets, f'out_{pcap_name}.csv')
+
+if __name__ == '__main__':
+    PCAP_DIR = input("please enter pcap directory: ")
+    extract_data_from_pcap_dir(pcap_dir = PCAP_DIR)
